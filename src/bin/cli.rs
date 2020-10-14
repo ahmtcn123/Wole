@@ -21,7 +21,8 @@ fn main() {
                 println!("Send packages aggressively to following ports one after another");
                 println!("[9, 7, 40557, 47536, 44099, 38482, 46613]");
             } else if args.contains(&"-l".to_string()) || args.contains(&"--listen".to_string()) {
-                println!("Listen for WOL packages in common ports")
+                println!("Listen for WOL packages in common ports");
+                println!("--listen | -l [192.168.1.100]");
             } else {
                 println!("Arguments Help:");
                 println!("  --mac        | -m : Mac address of target");
@@ -30,11 +31,20 @@ fn main() {
                 println!("  --listen     | -l : Listen for WOL packages\n\n");
                 println!("  Target One Device: (--mac | -m) XX:XX:XX:XX:XX:XX (--ip | -i) 000.000.0.0");
                 println!("  Target Multiple Devices: (--mac | -m) XX:XX:XX:XX:XX:XX (--ip | -i) 000.000.0.0 (--mac | -m) XX:XX:XX:XX:XX:XX (--ip | -i) 000.000.0.0");
-                println!("  Listen For WOL Packages: (--listen | -l)")
+                println!("  Listen For WOL Packages: (--listen | -l) 000.000.0.0")
             }
+        } else if args.contains(&"-v".to_string()) || args.contains(&"--version".to_string()) {
+            const VERSION: &'static str = env!("CARGO_PKG_VERSION");
+            println!("Wake-On-Lan Magic Package Generator & Sender & CLI\nv{}",VERSION);
         } else {
             if args.contains(&"-l".to_string()) || args.contains(&"--listen".to_string()) {
-                println!("Listening Packages Not Implemented Yet");
+                let indx = args.iter().position(|r| r == "-l" || r == "--listen").unwrap();
+                if let Some(ip) = args.get(indx + 1) {
+                    wole::listen_packages(ip.to_string());
+                } else {
+                    println!("Wrong usage of args");
+                    println!("  Type --help for usage")
+                }
             } else {
                 let collected = wole::collect_ip_targets(args.clone(), args.contains(&"--agressive".to_owned()) || args.contains(&"-a".to_owned()));
                 if let Err(e) = collected {

@@ -1,4 +1,5 @@
 use std::net::{UdpSocket, SocketAddr, IpAddr};
+use std::str;
 
 pub fn generate_magic_package(mac: &str) -> Result<[u8; 102], bool> {
     let mut err = false;
@@ -86,6 +87,26 @@ fn mac_address_correct(mac: String) -> Result<String, bool> {
         Err(false)
     } else {
         Ok(mac.split("-").collect())
+    }
+}
+
+pub fn listen_packages(ip: String) {
+    let com =  UdpSocket::bind((ip, 9));
+    if let Ok(socket) = com {
+        println!("LISTENING");
+        //socket.set_read_timeout(Some(Duration::new(5, 0)))?;
+        socket.set_broadcast(true).unwrap();
+        loop {
+            let mut b = [0 as u8; 102];
+            if let Ok((_,e)) = socket.recv_from(&mut b) {
+                println!("--- {} ---",e);
+                println!("{:02x?}", &b[..]);
+                println!("---END OF DATA---");
+            }
+        }
+    } else if let Err(e) = com {
+        println!("Failed to open connection");
+        println!("{:#?}", e);
     }
 }
 
