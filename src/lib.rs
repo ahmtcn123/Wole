@@ -39,8 +39,9 @@ pub fn generate_magic_package(mac: &str) -> Result<[u8; 102], bool> {
 }
 
 pub fn send_package(addr: std::net::SocketAddr, mac: String) -> Result<bool,usize> {
-    let com =  UdpSocket::bind(addr.clone());
+    let com =  UdpSocket::bind("0.0.0.0:0");
     if let Ok(socket) = com {
+        socket.set_broadcast(true).unwrap();
         if let Ok(magic_package) = generate_magic_package(&mac) {
             let connection = socket.send_to(&magic_package, addr.clone());
             if let Ok(_) = connection {
