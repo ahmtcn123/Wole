@@ -28,12 +28,12 @@ wol.exe --help
 ## API Usage
 
 ```rust
-    let create_package = lib::generate_magic_package("2C2C2C2C2C2C");
+    let create_package = wole::generate_magic_package("2C2C2C2C2C2C");
 
     if let Ok(package) = create_package {
         println!("Package Created");
 
-        let send_package = lib::send_package(SocketAddr::new(IpAddr::V4(Ipv4Addr::new(127, 0, 0, 1)), 8080), package);
+        let send_package = wole::send_package(SocketAddr::new(IpAddr::V4(Ipv4Addr::new(127, 0, 0, 1)), 8080), package);
 
         if let Ok(_) = send_package {
             println!("Package sent")
