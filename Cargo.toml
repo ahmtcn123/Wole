@@ -1,6 +1,6 @@
 [package]
 name = "wol"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Ahmetcan Aksu <ahmetcanco@gmail.com>"]
 edition = "2018"
 description = "Wake-On-Lan Magic Package Generator & Sender & CLI"
@@ -11,7 +11,7 @@ repository = "https://github.com/ahmtcn123/Wol"
 readme = "README.md"
 
 [lib]
-name = "lib"
+name = "wol"
 path = "src/lib.rs"
 
 [[bin]]

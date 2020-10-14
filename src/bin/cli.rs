@@ -1,4 +1,3 @@
-use lib;
 use std::env;
 
 fn main() {
@@ -37,7 +36,7 @@ fn main() {
             if args.contains(&"-l".to_string()) || args.contains(&"--listen".to_string()) {
                 println!("Listening Packages Not Implemented Yet");
             } else {
-                let collected = lib::collect_ip_targets(args.clone(), args.contains(&"--agressive".to_owned()) || args.contains(&"-a".to_owned()));
+                let collected = wol::collect_ip_targets(args.clone(), args.contains(&"--agressive".to_owned()) || args.contains(&"-a".to_owned()));
                 if let Err(e) = collected {
                     if e == "" {
                         println!("Wrong usage of args");
@@ -48,7 +47,7 @@ fn main() {
                     }
                 } else if let Ok(addresses) = collected {
                     for address in addresses.iter() {
-                        let sent = lib::send_package(address.socket_addr, address.mac.clone());
+                        let sent = wol::send_package(address.socket_addr, address.mac.clone());
                         if let Err(code) = sent {
                             if code == 0 {
                                 println!("[ERR] Failed to connect device {}:{}", address.socket_addr.ip(), address.socket_addr.port());
