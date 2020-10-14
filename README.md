@@ -1,4 +1,9 @@
 # Wol
+
+[![Crates.io Version](https://img.shields.io/crates/v/wole?logo=rust)](https://crates.io/crates/wole)
+[![Documentation](https://docs.rs/wole/badge.svg)](https://docs.rs/wole)
+
+
 Wake-On-Lan CLI
 
 ```ps
