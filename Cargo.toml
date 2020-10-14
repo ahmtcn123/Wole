@@ -1,6 +1,6 @@
 [package]
 name = "wole"
-version = "0.1.4"
+version = "0.1.5"
 authors = ["Ahmetcan Aksu <ahmetcanco@gmail.com>"]
 edition = "2018"
 description = "Wake-On-Lan Magic Package Generator & Sender & CLI"
