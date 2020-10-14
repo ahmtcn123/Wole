@@ -1,0 +1,20 @@
+[package]
+name = "wol"
+version = "0.1.0"
+authors = ["Ahmetcan Aksu <ahmetcanco@gmail.com>"]
+edition = "2018"
+description = "Wake-On-Lan Magic Package Generator & Sender & CLI"
+license-file = "LICENSE"
+categories = ["command-line-utilities", "network-programming"]
+keywords = ["cli"]
+repository = "https://github.com/ahmtcn123/Wol"
+readme = "README.md"
+
+[lib]
+name = "lib"
+path = "src/lib.rs"
+
+[[bin]]
+name = "cli"
+test = false
+bench = false
