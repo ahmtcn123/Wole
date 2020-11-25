@@ -1,4 +1,4 @@
-# Wol
+# Wole
 
 [![Crates.io Version](https://img.shields.io/crates/v/wole?logo=rust)](https://crates.io/crates/wole)
 [![Documentation](https://docs.rs/wole/badge.svg)](https://docs.rs/wole)
@@ -15,19 +15,19 @@ wole --help
 - ### Waking up single device
 
 ```ps
-    wole --mac 2c-2c-2c-2c-2c-2c --ip 192.168.1.100
+    wole --mac 2c:2c:2c:2c:2c:2c --ip 192.168.1.100
 ```
 
 - ### Waking up multiple devices
 
 ```ps
-    wole --mac 2c-2c-2c-2c-2c-2c --ip 192.168.1.100  --mac 2a-2c-2d-2b-2c-2c --ip 192.168.1.102
+    wole --mac 2c:2c:2c:2c:2c:2c --ip 192.168.1.100  --mac 2a:2c:2c:2c:2c:2c --ip 192.168.1.102
 ```
 
 - ### Sent packages aggressively
 
 ```ps
-    wole --mac 2c-2c-2c-2c-2c-2c --ip 192.168.1.100 --aggressive
+    wole --mac 2c:2c:2c:2c:2c:2c --ip 192.168.1.100 --aggressive
 ```
 
 - ### Listen for packages

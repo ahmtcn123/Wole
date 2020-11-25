@@ -1,13 +1,13 @@
 [package]
 name = "wole"
-version = "0.1.5"
+version = "1.2.6"
 authors = ["Ahmetcan Aksu <ahmetcanco@gmail.com>"]
 edition = "2018"
 description = "Wake-On-Lan Magic Package Generator & Sender & CLI"
 license-file = "LICENSE"
 categories = ["command-line-utilities", "network-programming"]
 keywords = ["cli"]
-repository = "https://github.com/ahmtcn123/Wol"
+repository = "https://github.com/ahmtcn123/Wole"
 readme = "README.md"
 documentation = "https://docs.rs/wole"
 
