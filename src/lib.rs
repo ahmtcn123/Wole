@@ -1,4 +1,3 @@
-use std::net::{UdpSocket, SocketAddr, IpAddr};
 use std::str;
 
 pub fn generate_magic_package(mac: &str) -> Result<[u8; 102], bool> {

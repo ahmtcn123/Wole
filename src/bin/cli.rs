@@ -24,7 +24,7 @@ fn mac_address_correct(mac: String) -> Result<String, bool> {
     } else if mac.split(":").collect::<String>().len() != 12 {
         Err(false)
     } else {
-        Ok(mac.split("-").collect())
+        Ok(mac.split(":").collect())
     }
 }
 
@@ -38,7 +38,7 @@ pub fn listen_packages(ip: String) {
             let mut b = [0 as u8; 102];
             if let Ok((_,e)) = socket.recv_from(&mut b) {
                 println!("--- {} ---",e);
-                println!("{:02x?}", &b[..]);
+                println!("{:02x?}", &b[5..11]);
                 println!("---END OF DATA---");
             }
         }
