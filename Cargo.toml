@@ -1,8 +1,8 @@
 [package]
 name = "wole"
-version = "1.2.7"
+version = "1.2.8"
 authors = ["Ahmetcan Aksu <ahmetcanco@gmail.com>"]
-edition = "2018"
+edition = "2021"
 description = "Wake-On-Lan Magic Package Generator & Sender & CLI"
 license-file = "LICENSE"
 categories = ["command-line-utilities", "network-programming"]
@@ -16,6 +16,6 @@ name = "wole"
 path = "src/lib.rs"
 
 [[bin]]
-name = "cli"
+name = "wole"
 test = false
 bench = false
